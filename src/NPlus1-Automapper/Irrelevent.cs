@@ -44,12 +44,15 @@ namespace NPlus1_Automapper
 		protected override void OnConfiguring(DbContextOptionsBuilder builder)
 		{
 			builder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=TestAutomapper;Trusted_Connection=True;MultipleActiveResultSets=true");
+			
+			base.OnConfiguring(builder);
+		}
 
+		public void ConfigureLogging()
+		{
 			var serviceProvider = this.GetInfrastructure();
 			var loggerFactory = serviceProvider.GetService<ILoggerFactory>();
 			loggerFactory.AddProvider(new MyLoggerProvider());
-
-			base.OnConfiguring(builder);
 		}
 	}
 }

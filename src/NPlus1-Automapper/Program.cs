@@ -22,6 +22,7 @@ namespace NPlus1_Automapper
 			ADto aDto;
 			using (var context = new MyDbContext())
 			{
+				context.ConfigureLogging();
 				aDto = context.As.Where(a => a.Name == "Root").ProjectTo<ADto>().SingleOrDefault();
 			}
 
