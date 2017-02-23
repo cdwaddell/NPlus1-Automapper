@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7D51685C-11FA-4156-BE7B-CC5463881ECF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D280349F-A060-4A5E-9BB2-B6CE0EF64557}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NPlus1-Automapper", "src\NPlus1-Automapper\NPlus1-Automapper.xproj", "{5A4D1333-2AC7-4A8D-B5D2-3E9844375BDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A4D1333-2AC7-4A8D-B5D2-3E9844375BDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A4D1333-2AC7-4A8D-B5D2-3E9844375BDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A4D1333-2AC7-4A8D-B5D2-3E9844375BDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A4D1333-2AC7-4A8D-B5D2-3E9844375BDE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5A4D1333-2AC7-4A8D-B5D2-3E9844375BDE} = {7D51685C-11FA-4156-BE7B-CC5463881ECF}
+	EndGlobalSection
+EndGlobal
