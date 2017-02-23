@@ -12,4 +12,5 @@ namespace NPlus1_Automapper.Data
 		public string Name { get; set; }
 		public virtual ICollection<BEntity> Bs { get; set; }
 	}
+
 }

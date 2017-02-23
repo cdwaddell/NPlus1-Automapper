@@ -14,14 +14,8 @@ namespace NPlus1_Automapper
 		{
 			using (var context = new MyDbContext())
 			{
+				context.Database.EnsureDeleted();
 				context.Database.EnsureCreated();
-
-				var existingAs = context.As.Include(x => x.Bs).ThenInclude(x => x.Cs).ToList();
-				if (existingAs.Any())
-				{
-					context.As.RemoveRange(existingAs);
-					context.SaveChanges();
-				}
 
 				var a = new AEntity { Name = "Root" };
 				for (var i = 0; i < 10; i++)

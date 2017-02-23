@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -23,7 +24,9 @@ namespace NPlus1_Automapper
 			using (var context = new MyDbContext())
 			{
 				context.ConfigureLogging();
-				aDto = context.As.Where(a => a.Name == "Root").ProjectTo<ADto>().SingleOrDefault();
+				aDto = context.As.Where(a => a.Name == "Root")
+					.ProjectTo<ADto>()
+					.SingleOrDefault();
 			}
 
 			Console.WriteLine(aDto.Name);
@@ -35,8 +38,8 @@ namespace NPlus1_Automapper
 	public partial class MyDbContext : DbContext
 	{
 		public DbSet<AEntity> As { get; set; }
-		public DbSet<AEntity> Bs { get; set; }
-		public DbSet<AEntity> Cs { get; set; }
+		public DbSet<BEntity> Bs { get; set; }
+		public DbSet<CEntity> Cs { get; set; }
 	}
 
 	public class EntityProfile : Profile
