@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using NPlus1_Automapper.Data;
 using NPlus1_Automapper.Models;
@@ -24,13 +22,38 @@ namespace NPlus1_Automapper
 			using (var context = new MyDbContext())
 			{
 				context.ConfigureLogging();
-				aDto = context.As.Where(a => a.Name == "Root")
-					.ProjectTo<ADto>()
-					.SingleOrDefault();
+
+				//using automapper
+				//aDto = context.As.Where(a => a.Name == "Root")
+				//	.Include(a => a.Bs).ThenInclude(b => b.Cs)
+				//	.ProjectTo<ADto>()
+				//	.SingleOrDefault();
+
+				aDto = context.As.Include(a => a.Bs).ThenInclude(b => b.Cs)
+					.Where(a => a.Name == "Root")
+					.Select(a =>
+						new ADto
+						{
+							Name = a.Name,
+							Bs = a.Bs.Select(b =>
+								new BDto
+								{
+									Name = b.Name,
+									Id = b.Id,
+									Cs = b.Cs.Select(c => new CDto
+									{
+										Name = c.Name,
+										Id = c.Id
+									}).ToList()
+								}
+							).ToList()
+						}
+					).SingleOrDefault();
 			}
 
 			Console.WriteLine(aDto.Name);
 			Console.WriteLine("Press Any Key To Continue");
+
 			Console.Read();
 		}
 	}

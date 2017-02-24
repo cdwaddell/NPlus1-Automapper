@@ -10,6 +10,6 @@ namespace NPlus1_Automapper.Data
 		}
 		public int Id { get; set; }
 		public string Name { get; set; }
-		public virtual ICollection<CEntity> Cs { get; set; }
+		public ICollection<CEntity> Cs { get; set; }
 	}
 }

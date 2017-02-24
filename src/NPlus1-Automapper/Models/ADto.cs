@@ -6,6 +6,6 @@ namespace NPlus1_Automapper.Models
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }
-		public virtual List<BDto> Bs { get; set; }
+		public List<BDto> Bs { get; set; }
 	}
 }
